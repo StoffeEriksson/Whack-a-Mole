@@ -1,0 +1,17 @@
+/** Google fonts **/
+@import url('https://fonts.googleapis.com/css2?family=Original+Surfer&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: Original surfer, Roboto, sans-serif;
+    text-align: center;
+    background: url("../images/background.png.png");
+    background-size: cover;
+}
+
+.about {
+    background-color: white;
+    border-radius: 12px;
+    border: 2px solid black;
+    max-width: 500px;
+    height: 500px;
+}
