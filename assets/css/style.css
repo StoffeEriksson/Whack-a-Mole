@@ -14,53 +14,60 @@ body {
     text-align: center;
     background: url("../images/background.png.png") no-repeat center center;
     background-size: cover;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
+    height: 100vh;
     
 }
 
 nav {
+    
     position: absolute;
     top: 1rem;
-    left: 1rem;
+    right: 1rem;
 }
 
 header h1 {
-    font-size: 2rem;
+    font-size: 5vw;
     margin-bottom: 1rem;
+    color: white;
+    text-shadow: 2px 2px 5px #000;
 }
 
 #score {
-    font-size: 2rem;
+    font-size: 4vw;
     margin-bottom: 1rem;
+    color: white;
+    text-shadow: 2px 2px 5px #000;
 }
 
 #board {
-    height: 540px;
-    width: 540px;
+    width: 100%;
+    max-width: 540px;
+    margin: 20px auto;
     display: grid;
-    aspect-ratio: 1 / 1;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    justify-content: center;
-    background-color: green;
+    gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
     border: 3px solid white;
     border-radius: 25px;
+    background-color: green;
+    background-image: url("../images/grass.jpg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     
 }
 
 .hole {
-    width: 100%;
-    aspect-ratio: 1 / 1;
     background-image: url("../images/hole.png.png");
+    background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
-
+    border: 2px solid #333;
+    padding-bottom: 100%; /* This keeps the holes square */
+    position: relative;
 }
+
 
 
 
