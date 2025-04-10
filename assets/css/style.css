@@ -1,17 +1,66 @@
 /** Google fonts **/
 @import url('https://fonts.googleapis.com/css2?family=Original+Surfer&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-body {
-    font-family: Original surfer, Roboto, sans-serif;
-    text-align: center;
-    background: url("../images/background.png.png");
-    background-size: cover;
+/* General */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.about {
-    background-color: white;
-    border-radius: 12px;
-    border: 2px solid black;
-    max-width: 500px;
-    height: 500px;
+body {
+    font-family: 'Original Surfer', Roboto, sans-serif;
+    text-align: center;
+    background: url("../images/background.png.png") no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    
 }
+
+nav {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#score {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#board {
+    height: 540px;
+    width: 540px;
+    display: grid;
+    aspect-ratio: 1 / 1;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    justify-content: center;
+    background-color: green;
+    border: 3px solid white;
+    border-radius: 25px;
+    
+}
+
+.hole {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-image: url("../images/hole.png.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+
+
