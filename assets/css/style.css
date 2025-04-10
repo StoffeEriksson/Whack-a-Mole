@@ -12,31 +12,109 @@
 body {
     font-family: 'Original Surfer', Roboto, sans-serif;
     text-align: center;
-    background: url("../images/background.png.png") no-repeat center center;
+    background: url("../images/background.png") no-repeat center center;
     background-size: cover;
     height: 100vh;
     
+    
 }
 
-nav {
+nav  {
     
+    color: white;
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    float: right;
+    top: 1px;
+    right: 1px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+}
+
+nav a:hover {
+    color: #000;
+    transition: ease 0.3s;
+}
+
+h1 {
+    margin-top: 30px;
+    font-size: 4vw;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 2px 2px 2px #000;
+}
+
+#about {
+    width: 100%;
+    max-width: 540px;
+    background-color: lightblue;
+    margin-top: 40px;
+    margin-bottom: 1rem;
+    color: black;
+    
+    
+    
+}
+
+#play-btn {
+    border: 2px solid black;
+    padding: 10px;
+    background-color: lightblue;
+    color: black;
+    
+}
+
+#play-btn:hover {
+    background: white;
+    color: #000;
+}
+
+#mole-img {
+    width: 100%;
+    max-width: 540px;
+    float: right;
+}
+
+#mole {
+    width: 100%;
+    display: block;
+    margin: auto;
+    padding: 30px;
+    padding-left: 50px;
+    padding-right: 0;
+}
+
+
+#about h2 {
+    padding: 12px;
+    
+}
+
+#about ul {
+    list-style-type: none;
+}
+
+#about li {
+    padding: 12px;
+    text-decoration: none;
 }
 
 header h1 {
-    font-size: 5vw;
+    font-size: 4vw;
     margin-bottom: 1rem;
     color: white;
     text-shadow: 2px 2px 5px #000;
 }
 
 #score {
-    font-size: 4vw;
+    font-size: 3vw;
     margin-bottom: 1rem;
     color: white;
     text-shadow: 2px 2px 5px #000;
+    
 }
 
 #board {
@@ -51,7 +129,7 @@ header h1 {
     border: 3px solid white;
     border-radius: 25px;
     background-color: green;
-    background-image: url("../images/grass.jpg.jpg");
+    background-image: url("../images/grass.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -59,13 +137,44 @@ header h1 {
 }
 
 .hole {
-    background-image: url("../images/hole.png.png");
+    background-image: url("../images/hole.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    border: 2px solid #333;
-    padding-bottom: 100%; /* This keeps the holes square */
+    padding-bottom: 100%; 
     position: relative;
+}
+
+
+#buttons {
+    margin: 1rem;
+    text-align: center;
+}
+
+button {
+    background-color: white;
+    color: black;
+    font-size: 1.2rem;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+    color: white;
+}
+
+
+
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 
