@@ -7,6 +7,7 @@ const holes = document.querySelectorAll(".hole");
 let score = 0;
 let currentHole = null;
 let moleInterval = null;
+let frogInterval = null;
 
 // Start the game
 startButton.addEventListener("click", startGame);
@@ -19,7 +20,8 @@ resetButton.addEventListener("click", resetGame);
 function startGame() {
     resetGame();
     
-    moleInterval = setInterval(showMole, 1500); // sets timer to 1.5sek
+    moleInterval = setInterval(showMole, 1000); // sets timer to 1.5sek
+    frogInterval = setInterval(showFrog, 3000);
 }
 
 
@@ -33,6 +35,8 @@ function resetGame() {
     clearInterval(moleInterval);
     score = 0;
     displayScore.textContent = score;
+
+    clearInterval(frogInterval);
 }
 
 
@@ -53,7 +57,7 @@ function showMole() {
     // Makes sure to clear the current hole when it jumps to the next
     if(currentHole) {
         currentHole.innerHTML = "";
-    }
+    };
     
     currentHole = randomHole();
 
@@ -71,6 +75,27 @@ function showMole() {
 
 
 /**
+ * creates a img element and makes the frog spawn at a random hole.
+ */
+function showFrog() {
+    if(currentHole) {
+        currentHole.innerHTML = "";
+    };
+
+    currentHole = randomHole();
+
+    const frog = document.createElement("img");
+    frog.src = "assets/images/frog.png";
+    frog.alt = "Frog";
+    frog.classList.add("frog");
+
+    frog.addEventListener("click", wackFrog);
+
+    currentHole.appendChild(frog);
+}
+
+
+/**
  * 
  *  wackMole() is running when to mole is clicked. The score increases by 1 point and the mole removes from the hole.
  */
@@ -78,4 +103,21 @@ function wackMole(event) {
     score++;
     displayScore.textContent = score;
     event.target.remove();
+}
+
+
+/**
+ * 
+ * clicking the frog the game shows Game Over and board clears and your final score shows 
+ */
+function wackFrog(event) {
+    clearInterval(moleInterval);
+    clearInterval(frogInterval);
+
+    if(currentHole) {
+        currentHole.innerHTML = "";
+    };
+    
+    document.getElementById("score").innerText = "GAME OVER! Score:" + score;
+
 }
