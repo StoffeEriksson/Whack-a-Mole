@@ -5,9 +5,12 @@ const displayScore = document.getElementById("score");
 const holes = document.querySelectorAll(".hole");
 
 let score = 0;
-let currentHole = null;
+let gameTime = 30;
 let moleInterval = null;
 let frogInterval = null;
+let timeInterval = null;
+let moleHole = null;
+let frogHole = null;
 
 // Start the game
 startButton.addEventListener("click", startGame);
@@ -20,8 +23,13 @@ resetButton.addEventListener("click", resetGame);
 function startGame() {
     resetGame();
     
+
+    gameTime = 30;
+    document.getElementById("timer").textContent = "Time: " + gameTime;
+    
     moleInterval = setInterval(showMole, 1000); // sets timer to 1.5sek
-    frogInterval = setInterval(showFrog, 3000);
+    frogInterval = setInterval(showFrog, 2000);
+    timeInterval = setInterval(setTimer, 1000);
 }
 
 
@@ -29,24 +37,35 @@ function startGame() {
  * Resets the gamescore and clears all the holes.
  */
 function resetGame() {
-    if (currentHole) {
-        currentHole.innerHTML = "";
-    }
-    clearInterval(moleInterval);
+    if (moleHole) moleHole.innerHTML = "";
+    if(frogHole) frogHole.innerHTML = "";
+    
     score = 0;
     displayScore.textContent = score;
 
+    gameTime = 30;
+    document.getElementById("timer").textContent = "Time :" + gameTime;
+    
+    clearInterval(moleInterval);
     clearInterval(frogInterval);
+    clearInterval(timeInterval);
 }
+
+
+
+
 
 
 /**
  * 
- * Makes the mole to spawn at a random place between the length of the array of holes.
+ * Makes the mole and the frog to spawn at a random place between the length of the array of holes.
  */
-function randomHole() {
-    const num = Math.floor(Math.random() * holes.length);
-    return holes[num];
+function randomHole(excludeHole = null) {
+    let hole;
+    do {
+        hole = holes[Math.floor(Math.random() * holes.length)];
+    } while (hole === excludeHole);
+    return hole;
 }
 
 
@@ -54,21 +73,24 @@ function randomHole() {
  * Makes the mole appear from and created img element and shown at a random place with randomHole() function.
  */
 function showMole() {
-    // Makes sure to clear the current hole when it jumps to the next
-    if(currentHole) {
-        currentHole.innerHTML = "";
-    };
     
-    currentHole = randomHole();
+
+    if (moleHole) moleHole.innerHTML = "";
+   
+    
 
     const mole = document.createElement("img");
     mole.src = "assets/images/mole.png";
     mole.alt = "Mole";
     mole.classList.add("mole");
 
+    moleHole = randomHole(frogHole);
+
     mole.addEventListener("click", wackMole);
     
-    currentHole.appendChild(mole);
+    moleHole.appendChild(mole);
+
+    
 
     
 }
@@ -78,20 +100,22 @@ function showMole() {
  * creates a img element and makes the frog spawn at a random hole.
  */
 function showFrog() {
-    if(currentHole) {
-        currentHole.innerHTML = "";
-    };
+    
+    
+    if (frogHole) frogHole.innerHTML = "";
 
-    currentHole = randomHole();
+    
 
     const frog = document.createElement("img");
     frog.src = "assets/images/frog.png";
     frog.alt = "Frog";
     frog.classList.add("frog");
 
+    frogHole = randomHole(moleHole);
+
     frog.addEventListener("click", wackFrog);
 
-    currentHole.appendChild(frog);
+    frogHole.appendChild(frog);
 }
 
 
@@ -100,7 +124,7 @@ function showFrog() {
  *  wackMole() is running when to mole is clicked. The score increases by 1 point and the mole removes from the hole.
  */
 function wackMole(event) {
-    score++;
+    score += 10;
     displayScore.textContent = score;
     event.target.remove();
 }
@@ -111,13 +135,10 @@ function wackMole(event) {
  * clicking the frog the game shows Game Over and board clears and your final score shows 
  */
 function wackFrog(event) {
-    clearInterval(moleInterval);
-    clearInterval(frogInterval);
+    endGame("GAME OVER! You hit the frog! Score: " + score);
 
-    if(currentHole) {
-        currentHole.innerHTML = "";
-    };
+}
+
+function endGame() {
     
-    document.getElementById("score").innerText = "GAME OVER! Score:" + score;
-
 }
