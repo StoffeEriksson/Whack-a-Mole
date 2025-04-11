@@ -1,4 +1,3 @@
-
 function startGame() {
 
 }
@@ -7,10 +6,7 @@ function resetGame() {
 
 }
 
-function showMole() {
+function randomHole() {
 
 }
 
-function hideMole() {
-    
-}
