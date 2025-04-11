@@ -52,7 +52,14 @@ function resetGame() {
 }
 
 
+function setTimer() {
+    gameTime--;
+    document.getElementById("timer").textContent = "Time: " + gameTime;
 
+    if (gameTime <= 0) {
+        endGame("Time's up! Final Score: " + score);
+    }
+}
 
 
 
@@ -140,5 +147,5 @@ function wackFrog(event) {
 }
 
 function endGame() {
-    
+
 }
