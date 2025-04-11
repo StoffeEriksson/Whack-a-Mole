@@ -12,20 +12,49 @@ let moleInterval = null;
 startButton.addEventListener("click", startGame);
 resetButton.addEventListener("click", resetGame);
 
+
+/**
+ * starts game and set an interval of 1.5sek for the mole to spawn.
+ */
 function startGame() {
-    moleInterval = setInterval(showMole, 2000);
+    resetGame();
+    
+    moleInterval = setInterval(showMole, 1500); // sets timer to 1.5sek
 }
 
+
+/**
+ * Resets the gamescore and clears all the holes.
+ */
 function resetGame() {
-
+    if (currentHole) {
+        currentHole.innerHTML = "";
+    }
+    clearInterval(moleInterval);
+    score = 0;
+    displayScore.textContent = score;
 }
 
+
+/**
+ * 
+ * Makes the mole to spawn at a random place between the length of the array of holes.
+ */
 function randomHole() {
     const num = Math.floor(Math.random() * holes.length);
     return holes[num];
 }
 
+
+/**
+ * Makes the mole appear from and created img element and shown at a random place with randomHole() function.
+ */
 function showMole() {
+    // Makes sure to clear the current hole when it jumps to the next
+    if(currentHole) {
+        currentHole.innerHTML = "";
+    }
+    
     currentHole = randomHole();
 
     const mole = document.createElement("img");
@@ -34,6 +63,8 @@ function showMole() {
     mole.classList.add("mole");
     
     currentHole.appendChild(mole);
+
+    
 }
 
 function wackMole() {
