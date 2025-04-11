@@ -29,7 +29,7 @@ function showMole() {
     currentHole = randomHole();
 
     const mole = document.createElement("img");
-    mole.src = "../images/mole.png";
+    mole.src = "assets/images/mole.png";
     mole.alt = "Mole";
     mole.classList.add("mole");
     
