@@ -146,6 +146,15 @@ function wackFrog(event) {
 
 }
 
-function endGame() {
+function endGame(message) {
+    if (moleHole) moleHole.innerHTML = "";
+    if (frogHole) frogHole.innerHTML = "";
+    
+    clearInterval(moleInterval);
+    clearInterval(frogInterval);
+    clearInterval(timeInterval);
+
+    document.getElementById("score").innerText = message;
+
 
 }
