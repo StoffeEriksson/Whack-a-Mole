@@ -168,15 +168,7 @@ button:hover {
     gap: 20px;
 }
 
-.mole {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+
 
 
 
