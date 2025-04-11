@@ -1,4 +1,4 @@
-// Variables needed
+// created Variables needed for game
 const startButton = document.getElementById("start-btn");
 const resetButton = document.getElementById("reset-btn");
 const displayScore = document.getElementById("score");
@@ -12,13 +12,13 @@ let timeInterval = null;
 let moleHole = null;
 let frogHole = null;
 
-// Start the game
+// eventlisteners for start and reset buttons
 startButton.addEventListener("click", startGame);
 resetButton.addEventListener("click", resetGame);
 
 
 /**
- * starts game and set an interval of 1.5sek for the mole to spawn.
+ * starts game and set an interval for mole and frog to spawn including a timer of 30 sec.
  */
 function startGame() {
     resetGame();
@@ -27,9 +27,9 @@ function startGame() {
     gameTime = 30;
     document.getElementById("timer").textContent = "Time: " + gameTime;
     
-    moleInterval = setInterval(showMole, 1000); // sets timer to 1.5sek
-    frogInterval = setInterval(showFrog, 2000);
-    timeInterval = setInterval(setTimer, 1000);
+    moleInterval = setInterval(showMole, 1000); // Mole spawns after 1sec
+    frogInterval = setInterval(showFrog, 2000); // Frog spawns after 2 sec
+    timeInterval = setInterval(setTimer, 1000); 
 }
 
 
@@ -52,6 +52,10 @@ function resetGame() {
 }
 
 
+/**
+ * Sets a timer that counts down the time from 30 to 0. 
+ * when reached 0 tells the player Time's up!
+ */
 function setTimer() {
     gameTime--;
     document.getElementById("timer").textContent = "Time: " + gameTime;
@@ -82,7 +86,7 @@ function randomHole(excludeHole = null) {
 function showMole() {
     
 
-    if (moleHole) moleHole.innerHTML = "";
+    if (moleHole) moleHole.innerHTML = ""; // clears the current mole
    
     
 
@@ -109,7 +113,7 @@ function showMole() {
 function showFrog() {
     
     
-    if (frogHole) frogHole.innerHTML = "";
+    if (frogHole) frogHole.innerHTML = ""; // clears the current frog
 
     
 
@@ -128,7 +132,7 @@ function showFrog() {
 
 /**
  * 
- *  wackMole() is running when to mole is clicked. The score increases by 1 point and the mole removes from the hole.
+ *  wackMole() is running when to mole is clicked. The score increases by 10 points and the mole removes from the hole.
  */
 function wackMole(event) {
     score += 10;
@@ -139,13 +143,18 @@ function wackMole(event) {
 
 /**
  * 
- * clicking the frog the game shows Game Over and board clears and your final score shows 
+ * calls enGame when an event is used 
  */
 function wackFrog(event) {
     endGame("GAME OVER! You hit the frog! Score: " + score);
 
 }
 
+
+/**
+ * 
+ * endGame clears all holes and intervals set and gives a message!  
+ */
 function endGame(message) {
     if (moleHole) moleHole.innerHTML = "";
     if (frogHole) frogHole.innerHTML = "";
