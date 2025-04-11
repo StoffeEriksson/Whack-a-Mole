@@ -61,12 +61,21 @@ function showMole() {
     mole.src = "assets/images/mole.png";
     mole.alt = "Mole";
     mole.classList.add("mole");
+
+    mole.addEventListener("click", wackMole);
     
     currentHole.appendChild(mole);
 
     
 }
 
-function wackMole() {
 
+/**
+ * 
+ *  wackMole() is running when to mole is clicked. The score increases by 1 point and the mole removes from the hole.
+ */
+function wackMole(event) {
+    score++;
+    displayScore.textContent = score;
+    event.target.remove();
 }
