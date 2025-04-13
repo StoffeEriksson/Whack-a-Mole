@@ -105,6 +105,13 @@ header h1 {
     
 }
 
+#timer {
+    font-size: 3vw;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 2px 2px 5px #000;
+}
+
 #board {
     width: 100%;
     max-width: 540px;
