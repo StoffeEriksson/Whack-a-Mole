@@ -55,7 +55,22 @@ h1 {
     color: black;
     border-radius: 25px;
     border: 2px solid white;
+    padding-bottom: 10px;
     
+}
+
+.game-btn {
+    
+    border-radius: 12px;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    background-color: white;
+}
+
+.game-btn:hover {
+    background-color: #91C93E;
+    transition: ease-in 0.3s;
 }
 
 
