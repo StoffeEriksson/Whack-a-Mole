@@ -140,7 +140,7 @@ header h1 {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-  
+    cursor: url(../images/hammer.png), crosshair;
 }
 
 #board div img {

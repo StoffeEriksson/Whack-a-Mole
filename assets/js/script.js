@@ -17,6 +17,7 @@ startButton.addEventListener("click", startGame);
 resetButton.addEventListener("click", resetGame);
 
 
+
 /**
  * starts game and set an interval for mole and frog to spawn including a timer of 30 sec.
  */
@@ -133,3 +134,5 @@ function endGame(message) {
 
     document.getElementById("score").innerText = message;
 };
+
+
