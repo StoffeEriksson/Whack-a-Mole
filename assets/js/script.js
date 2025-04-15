@@ -111,6 +111,8 @@ function showFrog() {
 function wackMole(event) {
     score += 10;
     displayScore.textContent = score;
+    let correct = new Audio("assets/audio/correct-hit.mp3");
+    correct.play();
     event.target.remove();
 };
 /**
@@ -119,6 +121,8 @@ function wackMole(event) {
  */
 function wackFrog(event) {
     endGame("GAME OVER! You hit the frog! Score: " + score);
+    let wrong = new Audio("assets/audio/wrong-hit.mp3");
+        wrong.play();
 };
 /**
  * 
