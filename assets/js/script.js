@@ -61,6 +61,7 @@ function setTimer() {
     if (gameTime <= 0) {
         endGame("Time's up! Final Score: " + score);
     };
+    
 };
 /**
  * 
