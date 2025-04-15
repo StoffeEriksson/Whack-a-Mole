@@ -46,6 +46,7 @@ h1 {
     text-shadow: 2px 2px 2px #000;
 }
 
+/* Section How to play at home page */
 #about {
     width: 100%;
     max-width: 540px;
@@ -71,6 +72,7 @@ h1 {
     text-decoration: none;
 }
 
+/* Button inside the about section */
 .game-btn {
     border-radius: 12px;
     text-decoration: none;
@@ -84,6 +86,7 @@ h1 {
     transition: ease-in 0.3s;
 }
 
+/* Mole img at the home page */
 #mole-img {
     width: 100%;
     max-width: 540px;
@@ -137,6 +140,16 @@ header h1 {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  
+}
+
+#board div img {
+      /* code below added to make sure not to drag picture or highligt pictures inside game board */
+    user-select: none; 
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .hole {
